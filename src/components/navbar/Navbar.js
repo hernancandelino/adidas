@@ -1,7 +1,14 @@
+import logo from '../../img/logo.png'
+import busqueda from '../../img/busqueda.png'
+import favoritos from '../../img/corazon.png'
+import perfil from '../../img/perfil.png'
+import '../navbar/navbar.css'
+import CartWidget from '../cartWidget/CartWidget'
+
 const navBar = () => {
 return (<header>
 <div id="logo">
-    <img src="./img/logo.png" alt="logo"></img>
+    <img src={logo} alt="logo"></img>
 </div>
 <nav>
     <div>
@@ -26,17 +33,15 @@ return (<header>
 <div id="botones">
     <div id="busqueda">
         <input type="search" placeholder="Buscar"></input>
-        <img src="../img/busqueda.png" alt="busqueda"></img>
+        <img src={busqueda} alt="busqueda"></img>
     </div>
     <div>
-        <img src="../img/perfil.png" alt="perfil"></img>
+        <img src={perfil} alt="perfil"></img>
     </div>
     <div>
-        <img src="../img/corazon.png" alt="deseados"></img>
+        <img src={favoritos} alt="deseados"></img>
     </div>
-    <div>
-        <img src="../img/compras.png" alt="compras"></img>
-    </div>
+        <CartWidget/>
 </div>
 </header>);
 }
