@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACN,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,gBAAgB,EAAE,MAAM;EACxB,KAAK,EAAE,EAAE;CAQZ;;AAbD,AAQI,SARK,CAQL,CAAC,CAAC;EACE,MAAM,EAAE,GAAG;CACd",
     "sources": [
         "itemCount.scss"
     ],
