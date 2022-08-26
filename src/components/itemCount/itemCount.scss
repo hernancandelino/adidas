@@ -1,14 +1,17 @@
-.contador {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.contador-container {
     background-color: bisque;
     width: 5%;
-    .boton-sumar {
+    .contador {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            margin: 5px;
+        }
     }
-    p {
-        margin: 5px;
-    }
-    .boton.restar {
+    .carrito {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

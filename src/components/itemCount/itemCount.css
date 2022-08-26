@@ -1,4 +1,9 @@
-.contador {
+.contador-container {
+  background-color: bisque;
+  width: 5%;
+}
+
+.contador-container .contador {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8,11 +13,21 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: bisque;
-  width: 5%;
 }
 
-.contador p {
+.contador-container .contador p {
   margin: 5px;
+}
+
+.contador-container .carrito {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=itemCount.css.map */

@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import './itemCount.css'
+import '../../tipografia/stylesheet.css'
 
 const ItemCount = () => {
     const [cantidad, setCantidad] = useState(0);
 
     const aumentarCantidad = () => {
-        if (cantidad >= 0) {
+        if (cantidad >= 0 && cantidad < 10) {
             setCantidad(cantidad + 1);
         }
     }
@@ -14,13 +15,30 @@ const ItemCount = () => {
             setCantidad(cantidad - 1);
         }
     }
+    const resetearCantidad = () => {
+        setCantidad(0)
+    }
+    
+
+    const [contador, setContador] = useState(0);
+
+    const aumentarContador = () => {
+        setContador(contador + cantidad);
+        resetearCantidad();
+    }
     
     return (
-    <div className="contador">
-        <button className='boton-sumar' onClick={aumentarCantidad}>+</button>
-        <p>{cantidad}</p>
-        <button className='boton-restar' onClick={disminuirCantidad}>-</button>
-    </div>
+        <div className='contador-container'>
+            <div className="contador">
+                <button onClick={aumentarCantidad}>+</button>
+                <p>{cantidad}</p>
+                <button onClick={disminuirCantidad}>-</button>
+            </div>
+            <div className='carrito'>
+                <button onClick={aumentarContador}>Añadir al carrito</button>
+                <p>{contador}</p>
+            </div>
+        </div>
     )
 }
 
