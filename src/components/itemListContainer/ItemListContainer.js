@@ -1,4 +1,5 @@
 import '../itemListContainer/itemListContainer.css'
+import ItemList from '../itemList/ItemList';
 
 const ItemListContainer = () => {
     return (
@@ -6,6 +7,7 @@ const ItemListContainer = () => {
         <h1>
             Adidas
         </h1>
+        <ItemList/>
         </>
     )
 }

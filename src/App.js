@@ -1,6 +1,5 @@
 import NavBar from './components/navbar/Navbar';
 import ItemListContainer from './components/itemListContainer/ItemListContainer';
-import ItemCount from './components/itemCount/ItemCount';
 
 function App() {
   return (
@@ -8,9 +7,6 @@ function App() {
       <NavBar/>
       <div>
         <ItemListContainer/>
-      </div>
-      <div>
-        <ItemCount/>
       </div>
     </div>
   );
