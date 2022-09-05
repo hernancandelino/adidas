@@ -1,76 +1,60 @@
-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 0 50px;
+@font-face {
+  font-family: "Avant Garde";
+  src: url("../../tipografia/ITCAvantGardeStd-BoldCnObl.otf");
+  font-style: normal;
+  font-weight: normal;
 }
-
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  background-color: #ffffff;
+}
 header #logo img {
   width: 150px;
 }
-
 header nav {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 header nav div {
-  margin: 15px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 12px;
   font-weight: 800;
+  font-size: 16px;
+  font-family: "Avant Garde";
+  letter-spacing: 2px;
 }
-
 header #botones {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  align-items: center;
+  justify-content: end;
   width: 33%;
 }
-
 header #botones div {
   margin: 10px;
 }
-
 header #botones div img {
   width: 25px;
 }
-
 header #botones #busqueda {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   height: 25%;
   background-color: darkgrey;
   padding: 5px;
 }
-
 header #botones #busqueda input {
   border: 0;
   background-color: darkgrey;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
 header #botones #busqueda img {
   width: 25px;
   height: 25px;
-}
-/*# sourceMappingURL=navbar.css.map */
+}/*# sourceMappingURL=navbar.css.map */

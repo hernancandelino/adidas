@@ -3,11 +3,15 @@ import ItemList from '../itemList/ItemList';
 
 const ItemListContainer = () => {
     return (
-        <>        
-        <h1>
-            Adidas
-        </h1>
-        <ItemList/>
+        <>
+            <div>        
+                <h1>
+                    Adidas
+                </h1>
+            </div>
+            <div className='contenedor-cards'>
+                <ItemList/>
+            </div>
         </>
     )
 }

@@ -1,13 +1,24 @@
+import './item.css'
+
 const Item = ({producto}) => {
     return (
         <div className='producto'>
-            <img src={producto.pictureUrl} alt={producto.title}></img>
-            <p className='producto__nombre'>
-                {producto.title}
-            </p>
-            <p className='producto__precio'>
-                ${producto.price}
-            </p>
+            <div className='card'>
+                <img className='imagen-producto' src={producto.pictureUrl} alt={producto.title}></img>
+                <div className='container-precio'>
+                    <p className='precio'>
+                        ${producto.price}
+                    </p>
+                </div>
+            </div>
+            <div className='informacion-producto'>
+                <p className='producto-titulo'>
+                    {producto.title}
+                </p>
+                <p className='producto-categoria'>
+                    {producto.categoria} {producto.subCategoria}
+                </p>
+            </div>
         </div>
     )
 }

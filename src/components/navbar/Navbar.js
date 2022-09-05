@@ -1,7 +1,6 @@
-import logo from '../../img/logo.png'
-import busqueda from '../../img/busqueda.png'
-import favoritos from '../../img/corazon.png'
-import perfil from '../../img/perfil.png'
+import logo from '../../img/iconos/logo.png'
+import busqueda from '../../img/iconos/busqueda.png'
+import perfil from '../../img/iconos/perfil.png'
 import '../navbar/navbar.css'
 import CartWidget from '../cartWidget/CartWidget'
 
@@ -38,11 +37,8 @@ return (<header>
     <div>
         <img src={perfil} alt="perfil"></img>
     </div>
-    <div>
-        <img src={favoritos} alt="deseados"></img>
-    </div>
         <CartWidget/>
-</div>
+    </div>
 </header>);
 }
 

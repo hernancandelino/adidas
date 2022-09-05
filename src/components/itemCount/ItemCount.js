@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './itemCount.css'
-import '../../tipografia/stylesheet.css'
 
 const ItemCount = () => {
     const [cantidad, setCantidad] = useState(0);
