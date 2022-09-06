@@ -3,30 +3,33 @@ import busqueda from '../../img/iconos/busqueda.png'
 import perfil from '../../img/iconos/perfil.png'
 import '../navbar/navbar.css'
 import CartWidget from '../cartWidget/CartWidget'
+import { NavLink } from 'react-router-dom'
 
 const navBar = () => {
 return (<header>
 <div id="logo">
-    <img src={logo} alt="logo"></img>
+    <NavLink to="/productos">
+        <img src={logo} alt="logo"></img>
+    </NavLink>
 </div>
 <nav>
     <div>
-        MUJER
+        <NavLink className="nav-component" to='/productos/mujer'>MUJER</NavLink>
     </div>
     <div>
-        HOMBRE
+        <NavLink className="nav-component" to="/productos/hombre">HOMBRE</NavLink>
     </div>
     <div>
-        NIÑOS
+        <NavLink className="nav-component" to="/productos/niños">NIÑOS</NavLink>
     </div>
     <div>
-        DEPORTES
+        <NavLink className="nav-component" to="/productos/deportes">DEPORTES</NavLink>
     </div>
     <div>
-        MARCAS
+        <NavLink className="nav-component" to="/productos/marcas">MARCAS</NavLink>
     </div>
     <div>
-        COLECCIONES
+        <NavLink className="nav-component" to="/productos/colecciones">COLECCIONES</NavLink>
     </div>
 </nav>
 <div id="botones">

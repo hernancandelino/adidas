@@ -1,49 +1,35 @@
 import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom'
 import ItemDetail from "../itemDetail/ItemDetail";
 import ItemCount from "../itemCount/ItemCount";
+import datos from '../datos/Datos'
 
-const listaProductos = [
-    {
-        id: '1',
-        title: 'Remera Argentina',
-        price: '16.999',
-    },
-    {
-        id: '2',
-        title: 'Remera Boca',
-        price: '16.999',
-    }
-]
-
-
-const ItemDetailContainer = (producto) => {
-    const [productos, setProductos] = useState([]);
+const ItemDetailContainer = () => {
+    const [producto, setProducto] = useState([]);
+    const {id} = useParams();
     
     const obtenerProductos = () => {
         return new Promise((resolve)=>{
             setTimeout(() => {
-                resolve(listaProductos)
+                resolve(datos)
             }, 3000);
         })
     }
-
-    useEffect(() => {
-        const añadirProductos = async () => {
-            const productosAwait = await obtenerProductos();
-            setProductos(productosAwait);
-        }
-        añadirProductos();
-    },[])
+    useEffect(()=>{
+            if(!id){
+                obtenerProductos();
+                setProducto(datos)
+            } else{
+                const nuevoProducto = datos.find(producto=>producto.id === id);
+                // console.log('nuevaLista',nuevaLista)
+                setProducto(nuevoProducto)
+            }},[id])
     return (
-        productos.map((producto) => {
-           return (
             <div className='card-detail'>
                 <ItemDetail producto={producto}/>
                 <ItemCount/>
             </div>
            ) 
-        })
-    )
 }
 
 export default ItemDetailContainer;

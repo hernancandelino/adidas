@@ -29,6 +29,10 @@ header {
             font-size: 16px;
             font-family: 'Avant Garde';
             letter-spacing: 2px;
+            .nav-component {
+                color: black;
+                text-decoration: none;
+            }
         }
     }
     #botones {

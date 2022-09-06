@@ -23,23 +23,28 @@
   margin-left: 5px;
   position: absolute;
   bottom: 0px;
+  color: black;
 }
 .producto .informacion-producto {
   display: flex;
   flex-direction: column;
   margin-left: 5px;
+  text-decoration: none;
 }
 .producto .informacion-producto .producto-titulo {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 14px;
   margin: 7px 0;
+  color: black;
+  text-decoration: none;
 }
 .producto .informacion-producto .producto-categoria {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 300;
   font-size: 14px;
-  color: grey;
   margin: 0;
   margin-bottom: 60px;
+  text-decoration: none;
+  color: grey;
 }/*# sourceMappingURL=item.css.map */

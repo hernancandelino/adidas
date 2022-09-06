@@ -30,6 +30,10 @@ header nav div {
   font-family: "Avant Garde";
   letter-spacing: 2px;
 }
+header nav div .nav-component {
+  color: black;
+  text-decoration: none;
+}
 header #botones {
   display: flex;
   align-items: center;
