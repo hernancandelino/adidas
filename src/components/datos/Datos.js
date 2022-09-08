@@ -17,6 +17,7 @@ const Datos = [
         categoria: 'DEPORTES',
         subCategoria:'Futbol',
         lastCategoria: 'Remeras',
+        cantidad: 0
     },
     {
         id: '2',
@@ -26,6 +27,7 @@ const Datos = [
         categoria: 'DEPORTES',
         subCategoria:'Futbol',
         lastCategoria: 'Remeras',
+        cantidad: 0
     },
     {
         id: '3',
@@ -35,6 +37,7 @@ const Datos = [
         categoria: 'DEPORTES',
         subCategoria:'Futbol',
         lastCategoria: 'Remeras',
+        cantidad: 0
     },
     {
         id: '4',
@@ -44,6 +47,7 @@ const Datos = [
         categoria: 'DEPORTES',
         subCategoria:'Futbol',
         lastCategoria: 'Remeras',
+        cantidad: 0
     },
     {
         id: '5',
@@ -53,6 +57,7 @@ const Datos = [
         categoria: 'DEPORTES',
         subCategoria:'Futbol',
         lastCategoria: 'Remeras',
+        cantidad: 0
     },
     {
         id: '6',
@@ -62,6 +67,7 @@ const Datos = [
         categoria: 'DEPORTES',
         subCategoria:'Futbol',
         lastCategoria: 'Remeras',
+        cantidad: 0
     },
     {
         id: '7',
@@ -71,6 +77,7 @@ const Datos = [
         categoria: 'DEPORTES',
         subCategoria:'Futbol',
         lastCategoria: 'Remeras',
+        cantidad: 0
     },
     {
         id: '8',
@@ -80,6 +87,7 @@ const Datos = [
         categoria: 'DEPORTES',
         subCategoria:'Futbol',
         lastCategoria: 'Remeras',
+        cantidad: 0
     },
     {
         id: '9',
@@ -89,6 +97,7 @@ const Datos = [
         categoria: 'DEPORTES',
         subCategoria:'Futbol',
         lastCategoria: 'Pantalon',
+        cantidad: 0
     },
 ]
 
