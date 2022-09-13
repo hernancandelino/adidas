@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import './itemCount.css'
 
-const ItemCount = ({producto}) => {
-    const [productoCantidad, setProductoCantidad] = useState([0]);
+const ItemCount = ({onAdd}) => {
     const [cantidad, setCantidad] = useState(0);
 
     const aumentarCantidad = () => {
@@ -15,15 +14,6 @@ const ItemCount = ({producto}) => {
             setCantidad(cantidad - 1);
         }
     }
-    const resetearCantidad = () => {
-        setCantidad(0)
-    }
-    
-    const onAdd = () => {
-        const cantidadProducto = (producto.cantidad) + cantidad;
-        setProductoCantidad(cantidadProducto)
-        resetearCantidad();
-    }
     
     return (
         <div className='contador-container'>
@@ -33,8 +23,8 @@ const ItemCount = ({producto}) => {
                 <button onClick={disminuirCantidad}>-</button>
             </div>
             <div className='carrito'>
-                <button onClick={onAdd}>Añadir al carrito</button>
-                <p>{productoCantidad}</p>
+                <button onClick={() => onAdd(cantidad)}>Añadir al carrito</button>
+                <p>{cantidad}</p>
             </div>
         </div>
     )
