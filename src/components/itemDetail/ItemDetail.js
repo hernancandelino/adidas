@@ -3,11 +3,25 @@ import { CartContext } from '../../context/CartContext';
 import { useContext } from 'react';
 
 const ItemDetail = ({producto}) => {
-    const {agregarProducto} = useContext(CartContext);
+    const {listaProductos, agregarProducto, sumarPrecio, precioCarrito} = useContext(CartContext);
 
     const onAdd = (cantidad)=>{
-        const productoNuevo={...producto, cantidad:cantidad}
-        agregarProducto(productoNuevo)
+
+        const isInCart = (id)=> {
+            const idProducto = listaProductos.filter(elm=>elm.id === id);
+            const cantidadProducto = listaProductos.filter(elm=>elm.cantidad === cantidad);
+            if (idProducto === true) {
+                const nuevaCantidad = cantidadProducto
+                agregarProducto(nuevaCantidad)
+            }else {
+                const productoNuevo={...producto, cantidad:cantidad}
+                agregarProducto(productoNuevo)
+                const precioNuevo = (producto.precio * producto.cantidad)  
+                sumarPrecio(precioNuevo)
+                console.log(precioNuevo)
+            }
+        }
+        isInCart();
       }
 
     return (
