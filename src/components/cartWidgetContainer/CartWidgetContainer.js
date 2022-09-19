@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 export const CartWidgetContainer = () => {
   const {listaProductos, eliminarProducto, clearProductos, precioCarrito} = useContext(CartContext);
@@ -14,26 +15,45 @@ export const CartWidgetContainer = () => {
         )
       }
   }
+  const MostrarProductos = () => {
+    if (listaProductos.length > 0) {
+      return (
+          listaProductos.map(producto=>(
+            <div>
+              <p>{producto.title}</p>
+              <p>${producto.price * producto.cantidad}</p>
+              <img src={producto.pictureUrl} alt={producto.title}></img>
+              <p>{producto.cantidad}</p>
+              <button onClick={()=>eliminarProducto(producto.id)}>Eliminar producto</button>
+            </div>
+          ))
+      )
+    } else {
+      return (
+        <div>
+          <p>
+            Usted no tiene productos en el carrito.
+          </p>
+          <Link to='/'>          
+            <button>
+              Ir a realizar una compra
+            </button>
+          </Link>
+        </div>
+      )
+    }
+  }
 
   return (
 
     <div>
-      {precioCarrito}
+      <p>
+        {precioCarrito}
+      </p>
     <div>
 
       </div>
-      {
-        listaProductos.map(producto=>(
-          
-          <div>
-            <p>{producto.title}</p>
-            <p>${producto.price}</p>
-            <img src={producto.pictureUrl} alt={producto.title}></img>
-            <p>{producto.cantidad}</p>
-            <button onClick={()=>eliminarProducto(producto.id)}>Eliminar producto</button>
-          </div>
-        ))
-      }
+      {<MostrarProductos/>}
       {<EliminarProductos/>}
     </div>
   )
