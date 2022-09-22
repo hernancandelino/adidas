@@ -2,9 +2,30 @@ import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { collection, addDoc} from "firebase/firestore";
+import { db } from '../../utils/datos'
 
 export const CartWidgetContainer = () => {
   const {listaProductos, eliminarProducto, clearProductos, precioCarrito} = useContext(CartContext);
+
+  const [idOrder, setIdOrder] = useState("");
+
+  const sendOrder = (e)=>{
+    e.preventDefault();
+    const order = {
+      buyer: {
+        name: e.target[0].value,
+        phone:e.target[1].value,
+        email:e.target[2].value
+      },
+      items: listaProductos,
+      total: precioCarrito
+    }
+    const queryRef = collection(db,"orders");
+    addDoc(queryRef, order).then(respuesta=>setIdOrder(respuesta.id))
+  }
+
 
   const EliminarProductos = () => {
       if (listaProductos.length !== 0) {
@@ -44,17 +65,39 @@ export const CartWidgetContainer = () => {
     }
   }
 
-  return (
+  const MostrarId = () => {
+    if (idOrder) {
+      return (
+        <div>
+          Su numero de compra es {idOrder}
+        </div>
+      )
+    }
+  }
 
+  return (
+  <>
     <div>
       <p>
         {precioCarrito}
       </p>
     <div>
 
-      </div>
+    </div>
       {<MostrarProductos/>}
       {<EliminarProductos/>}
     </div>
+
+    <div>
+      <form onSubmit={sendOrder}>
+        <input type="text" placeholder='nombre'/>
+        <input type="text" placeholder='telefono'/>
+        <input type="email" placeholder='email'/>
+        <button type='submit'>enviar orden</button>
+      </form>
+    </div>
+
+    <MostrarId/>
+  </>
   )
 }
