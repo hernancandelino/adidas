@@ -1,32 +1,28 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 import ItemDetail from "../itemDetail/ItemDetail";
-import datos from '../datos/Datos'
+import { db } from "../../utils/datos";
+import { doc, getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-    const [producto, setProducto] = useState([]);
     const {id} = useParams();
-    
-    const obtenerProductos = () => {
-        return new Promise((resolve)=>{
-            setTimeout(() => {
-                resolve(datos)
-            }, 3000);
-        })
-    }
+    const [producto, setProducto] = useState({});
+
     useEffect(()=>{
-            if(!id){
-                obtenerProductos();
-                setProducto(datos)
-            } else{
-                const nuevoProducto = datos.find(producto=>producto.id === id);
-                setProducto(nuevoProducto)
-            }},[id])
-    return (
-            <div className='card-detail'>
-                <ItemDetail producto={producto}/>
-            </div>
-           ) 
+        const queryRef = doc(db,"item",id);
+        getDoc(queryRef).then(response=>{
+            const newDoc = {
+                ...response.data(),
+                id:response.id
+            }
+            setProducto(newDoc);
+        }).catch(error=>console.log(error));
+    },[id])
+        return (
+                <div className='card-detail'>
+                    <ItemDetail producto={producto}/>
+                </div>
+               ) 
 }
 
 export default ItemDetailContainer;
