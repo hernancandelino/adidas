@@ -2,102 +2,142 @@ import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { collection, addDoc} from "firebase/firestore";
-import { db } from '../../utils/datos'
+import './cartWidgetContainer.css'
 
 export const CartWidgetContainer = () => {
-  const {listaProductos, eliminarProducto, clearProductos, precioCarrito} = useContext(CartContext);
+  const {listaProductos, eliminarProducto, clearProductos, precioCarrito, cantidadCarrito} = useContext(CartContext);
 
-  const [idOrder, setIdOrder] = useState("");
-
-  const sendOrder = (e)=>{
-    e.preventDefault();
-    const order = {
-      buyer: {
-        name: e.target[0].value,
-        phone:e.target[1].value,
-        email:e.target[2].value
-      },
-      items: listaProductos,
-      total: precioCarrito
-    }
-    const queryRef = collection(db,"orders");
-    addDoc(queryRef, order).then(respuesta=>setIdOrder(respuesta.id))
-  }
-
-
-  const EliminarProductos = () => {
+  const BotonesProductos = () => {
       if (listaProductos.length !== 0) {
         return (
             <>
-            <button onClick={()=>clearProductos()}>Eliminar Todos los productos</button>
+              <div className='boton-interactivo'>
+                <p>➞</p>
+                <button onClick={()=>clearProductos()}>ELIMINAR PRODUCTOS</button>
+              </div>
+              <Link className='boton-interactivo' to='/checkout'>
+                <p>➞</p>      
+                <button>IR A PAGAR</button>
+              </Link>
             </>
         )
       }
   }
   const MostrarProductos = () => {
-    if (listaProductos.length > 0) {
       return (
           listaProductos.map(producto=>(
-            <div>
-              <p>{producto.title}</p>
-              <p>${producto.price * producto.cantidad}</p>
-              <img src={producto.pictureUrl} alt={producto.title}></img>
-              <p>{producto.cantidad}</p>
-              <button onClick={()=>eliminarProducto(producto.id)}>Eliminar producto</button>
+            <div className='productos-carrito'>
+              <div className='imagen-producto'>
+                <img src={producto.pictureUrlGrande} alt={producto.title}></img>
+              </div>
+              <div className='detalle-producto'>
+                <p>{producto.title}</p>
+                <p>{producto.color1} / {producto.color2}</p>
+                <p>{producto.cantidad}</p>
+              </div>
+              <div className='precio-producto'>
+                <p>$ {producto.price * producto.cantidad}</p>
+              </div>
+              <div className='eliminar-producto'>
+                <button onClick={()=>eliminarProducto(producto.id)}>X</button>
+              </div>
             </div>
           ))
       )
-    } else {
+    }
+  const TotalProductos = () => {
+    if (cantidadCarrito === 1) {
       return (
-        <div>
-          <p>
-            Usted no tiene productos en el carrito.
-          </p>
-          <Link to='/'>          
-            <button>
-              Ir a realizar una compra
-            </button>
-          </Link>
+      <>      
+        <div className='encabezado-carrito'>
+          <h2>TU CARRITO</h2>
+          <p>TOTAL ({cantidadCarrito} producto) <b>${precioCarrito}</b></p>
+          <p>Los artículos en tu carrito no están reservados. Terminá el proceso de compra ahora para hacerte con ellos.</p>
         </div>
+        <div className='cuotas'>
+          <h3>¡COMPRÁ AHORA Y PAGÁ EN 6 CUOTAS!</h3>
+          <p>Podés pagar con tus tarjetas Visa, MasterCard o American Express, al hacerlo, podrás pagar hasta en 6 cuotas sin interés.</p>
+        </div>
+      </>
+      )
+    } if (cantidadCarrito > 1) {
+      return (
+        <>
+          <div className='encabezado-carrito'>
+            <h2>TU CARRITO</h2>
+            <p>TOTAL ({cantidadCarrito} productos) <b>${precioCarrito}</b></p>
+            <p>Los artículos en tu carrito no están reservados. Terminá el proceso de compra ahora para hacerte con ellos.</p>
+          </div>
+          <div className='cuotas'>
+            <h3>¡COMPRÁ AHORA Y PAGÁ EN 6 CUOTAS!</h3>
+            <p>Podés pagar con tus tarjetas Visa, MasterCard o American Express, al hacerlo, podrás pagar hasta en 6 cuotas sin interés.</p>
+          </div>
+        </>
       )
     }
   }
-
-  const MostrarId = () => {
-    if (idOrder) {
+  const ResumenPedido = () => {
+    if (cantidadCarrito === 1) {
       return (
-        <div>
-          Su numero de compra es {idOrder}
+      <>
+        <h3 className='titulo-pedido'>RESUMEN DEL PEDIDO</h3>
+        <div className='div-pedido'>
+          <p>{cantidadCarrito} PRODUCTO</p><p>$ {precioCarrito}</p>
         </div>
+        <div className='div-pedido'>
+          <p>ENTREGA</p><p>$ 599</p>
+        </div>
+        <div className='div-pedido'>
+          <b>TOTAL</b><b>{Number(precioCarrito + 599)}</b>
+        </div>
+      </>
+      )
+    } if (cantidadCarrito > 1) {
+      return (
+        <>        
+          <h3 className='titulo-pedido'>RESUMEN DEL PEDIDO</h3>
+          <div className='div-pedido'>
+            <p>{cantidadCarrito} PRODUCTOS</p><p>$ {precioCarrito}</p>
+          </div>
+          <div className='div-pedido'>
+            <p>ENTREGA</p><p>$ 599</p>
+          </div>
+          <div className='div-pedido'>
+            <b>TOTAL</b><b>$ {Number(precioCarrito + 599)}</b>
+          </div>
+        </>
       )
     }
   }
-
+  if (listaProductos.length > 0) {
   return (
-  <>
-    <div>
-      <p>
-        {precioCarrito}
-      </p>
-    <div>
-
+  <div className='carrito-container'>
+    <div className='carrito-1'>
+      <TotalProductos/>
+      <div>
+        {<MostrarProductos/>}
+      </div>
     </div>
-      {<MostrarProductos/>}
-      {<EliminarProductos/>}
+    <div className='carrito-2'>
+      <div className='botones-compra'>
+        {<BotonesProductos/>}
+      </div>
+      <div className='resumen-pedido'>
+        <ResumenPedido/>
+      </div>
     </div>
-
-    <div>
-      <form onSubmit={sendOrder}>
-        <input type="text" placeholder='nombre'/>
-        <input type="text" placeholder='telefono'/>
-        <input type="email" placeholder='email'/>
-        <button type='submit'>enviar orden</button>
-      </form>
-    </div>
-
-    <MostrarId/>
-  </>
+  </div>
   )
+  } else {
+    return (
+      <div className='carrito-vacio'>      
+        <h2>EL CARRITO ESTA VACÍO</h2>
+        <p>Una vez que añadas algo a tu carrito, aparecerá acá. ¿Listo para empezar?</p>
+        <Link className='boton-interactivo' to='/'>
+          <p>➞</p>      
+          <button>EMPEZAR</button>
+        </Link>
+      </div>
+    )
+  }
 }

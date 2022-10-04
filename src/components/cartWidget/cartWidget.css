@@ -1,3 +1,28 @@
 .carrito-inactivo {
   display: none;
+}
+
+.carrito-activo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.carrito-activo img {
+  font-family: "Avant Garde cantidad";
+  color: #ffffff;
+  font-size: 25px;
+  width: 100%;
+  text-align: start;
+  padding: 10px 15px;
+}
+.carrito-activo p {
+  border-radius: 50%;
+  position: absolute;
+  color: #cbe2ee;
+  margin-right: 5px;
+  margin-bottom: 50px;
+  padding: 3px 5px 5px 5px;
+  background-color: #1a7fb6;
 }/*# sourceMappingURL=cartWidget.css.map */

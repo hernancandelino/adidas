@@ -37,9 +37,6 @@ return (<header>
         <input type="search" placeholder="Buscar"></input>
         <img src={busqueda} alt="busqueda"></img>
     </div>
-    <div>
-        <img src={perfil} alt="perfil"></img>
-    </div>
         <CartWidget/>
     </div>
 </header>);

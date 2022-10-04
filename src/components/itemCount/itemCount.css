@@ -1,17 +1,60 @@
+@font-face {
+  font-family: "Avant Garde cantidad";
+  src: url("../../tipografia/ITCAvantGardeStd-BoldCnObl.otf");
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Avant Garde 2";
+  src: url("../../tipografia/ITCAvantGardeStd-BkCnObl.otf");
+  font-style: italic;
+  font-weight: normal;
+}
 .contador-container {
-  background-color: bisque;
-  width: 5%;
+  margin: 15px 30px;
 }
 .contador-container .contador {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.contador-container .contador p {
-  margin: 5px;
+.contador-container .contador .boton {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 17px;
+  width: 25%;
 }
-.contador-container .carrito {
+.contador-container .contador p {
+  margin: 0 50px;
+  font-family: "Avant Garde cantidad";
+}
+.contador-container .boton-interactivo {
+  margin: 40px 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  text-decoration: none;
+}
+.contador-container .boton-interactivo button {
+  font-family: "Avant Garde cantidad";
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 25px;
+  width: 100%;
+  text-align: start;
+  padding: 10px 15px;
+}
+.contador-container .boton-interactivo p {
+  position: absolute;
+  color: white;
+  font-size: 33px;
+  margin-right: 7px;
+}
+.contador-container .producto-carrito {
+  align-items: center;
+}
+.contador-container .producto-carrito .cantidad-producto {
+  text-align: center;
+  font-family: "Avant Garde 2";
+  font-size: 17px;
 }/*# sourceMappingURL=itemCount.css.map */

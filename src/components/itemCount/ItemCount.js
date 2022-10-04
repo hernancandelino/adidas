@@ -6,25 +6,24 @@ import { Link } from 'react-router-dom';
 
 const ItemCount = ({producto}) => {
     const {listaProductos, agregarProducto, sumarPrecio, sumarCantidad} = useContext(CartContext);
-    const [cantidadProducto, setCantidad] = useState(1);
+    const [cantidadProducto, setCantidadProducto] = useState(1);
 
     const aumentarCantidad = () => {
         if (cantidadProducto >= 0 && cantidadProducto < 10) {
-            setCantidad(cantidadProducto + 1);
+            setCantidadProducto(cantidadProducto + 1);
         }
     }
     const disminuirCantidad = () => {
         if (cantidadProducto > 0) {
-            setCantidad(cantidadProducto - 1);
+            setCantidadProducto(cantidadProducto - 1);
         }
     }
     const FinalizarCompra = () => {
         if (producto.cantidad > 0) {
             return (
-                <Link to='/cart'>
-                    <button>
-                        Finalizar compra
-                    </button>
+                <Link className='boton-interactivo' to='/cart'>
+                    <p>➞</p>
+                    <button>FINALIZAR COMPRA</button>
                 </Link>
             )
         }
@@ -38,32 +37,62 @@ const ItemCount = ({producto}) => {
                     agregarProducto(productoNuevo)  
                     const precioProducto = (productoNuevo.price * productoNuevo.cantidad)
                     sumarPrecio(precioProducto);
-                    setCantidad(1)
+                    setCantidadProducto(1)
                     sumarCantidad(cantidad)
-                    producto.cantidad = productoNuevo.cantidad
                 }else {
                     const nuevaCantidad = productoComprado.cantidad + cantidad
                     productoComprado.cantidad = nuevaCantidad
                     const precioProducto = (cantidad * producto.price)
                     sumarPrecio(precioProducto)
                     sumarCantidad(cantidad)
-                    setCantidad(1)
-                    producto.cantidad = productoComprado.cantidad
+                    setCantidadProducto(1)
                 }
+            }
         }
-    }
         IsInCart();
     }
+    const asignarCantidad = () => {
+        const productoComprado = listaProductos.find(elm=>elm.id === producto.id);
+        if (productoComprado) {
+            producto.cantidad = productoComprado.cantidad
+        } else {
+            producto.cantidad = 0
+        }
+    }
+    asignarCantidad();
+    const MostrarCantidad = () => {
+        if (producto.cantidad === 0) {
+            return (
+            <div className='producto-carrito'>
+                <p className='cantidad-producto'>Actualmente no posee unidades del producto en el carrito</p>
+            </div>
+            )
+        } if (producto.cantidad === 1) {
+            return (
+                <div className='producto-carrito'>
+                    <p className='cantidad-producto'>Actualmente en su carrito posee <b>{producto.cantidad}</b> unidad del producto</p>
+                </div>
+                )
+        } else {
+            return (
+            <div className='producto-carrito'>
+                <p className='cantidad-producto'>Actualmente en su carrito posee <b>{producto.cantidad}</b> unidades del producto</p>
+            </div>
+            )
+        }
+    }
+
     return (
         <div className='contador-container'>
+            <MostrarCantidad/>
             <div className="contador">
-                <button onClick={aumentarCantidad}>+</button>
+                <button className='boton' onClick={aumentarCantidad}>+</button>
                 <p>{cantidadProducto}</p>
-                <button onClick={disminuirCantidad}>-</button>
+                <button className='boton' onClick={disminuirCantidad}>-</button>
             </div>
-            <div className='carrito'>
-                <button onClick={() => {onAdd(cantidadProducto)}}>Añadir al carrito</button>
-                <p>{producto.cantidad}</p>
+            <div className='boton-interactivo'>
+                <p>➞</p>
+                <button onClick={() => {onAdd(cantidadProducto)}}>AÑADIR AL CARRITO</button>
             </div>
             <div>
                 <FinalizarCompra/>

@@ -1,0 +1,82 @@
+@font-face {
+    font-family: "Avant Garde 2";
+    src: url("../../tipografia/ITCAvantGardeStd-BkCnObl.otf");
+    font-style: italic;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Avant Garde 3";
+    src: url("../../tipografia/ITCAvantGardeStd-BoldObl.otf");
+    font-style: normal;
+    font-weight: normal;
+}
+.checkout-container {
+    margin: 0 140px;
+    form {
+        width: 50%;
+        .div-input {
+            h4 {
+                font-family: "Avant Garde 3";
+                font-size: 20px;
+            }
+            input {
+                font-family: "Avant Garde 2";
+                letter-spacing: 1px;
+                font-size: 13px;
+            }
+        }
+    }
+    .boton-interactivo {
+        width: 250px;
+        display: flex;
+        margin: 15px 0;
+        justify-content: flex-end;
+        align-items: center;
+        text-decoration: none;
+        button {
+            font-family: "Avant Garde cantidad";
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 25px;
+            width: 100%;
+            text-align: start;
+            padding: 5px 7px;
+        }
+        p {
+            position: absolute;
+            color: white;
+            font-size: 33px;
+            margin-right: 7px;
+        }
+    }
+}
+.id-order {
+    margin-left: 40px;
+    p {
+        font-family: "Avant Garde 3";
+        letter-spacing: 0.5px;
+    }
+        .boton-interactivo {
+            width: 250px;
+            display: flex;
+            margin: 15px 0;
+            justify-content: flex-end;
+            align-items: center;
+            text-decoration: none;
+            button {
+                font-family: "Avant Garde cantidad";
+                background-color: #000000;
+                color: #ffffff;
+                font-size: 25px;
+                width: 100%;
+                text-align: start;
+                padding: 5px 7px;
+            }
+            p {
+                position: absolute;
+                color: white;
+                font-size: 33px;
+                margin-right: 7px;
+            }
+        }
+}

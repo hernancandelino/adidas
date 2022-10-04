@@ -13,6 +13,7 @@ header {
     top: 0px;
     z-index: 2;
     background-color: #ffffff;
+    margin-bottom: 25px;
     #logo {
         img {
             width: 150px;
@@ -39,7 +40,7 @@ header {
         display: flex;
         align-items: center;
         justify-content: end;
-        width: 33%;
+        width: 25%;
         div {
             margin: 10px;
             img {
@@ -49,9 +50,11 @@ header {
         #busqueda {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             height: 25%;
             background-color: darkgrey;
             padding: 5px;
+            width: 75%;
             input {
                 border: 0;
                 background-color: darkgrey;

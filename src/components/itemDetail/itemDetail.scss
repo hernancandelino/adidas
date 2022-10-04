@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "Avant Garde 2";
+    src: url("../../tipografia/ITCAvantGardeStd-BkCnObl.otf");
+    font-style: italic;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Avant Garde producto";
+    src: url("../../tipografia/ITCAvantGardeStd-DemiCnObl.otf");
+    font-style: normal;
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Avant Garde precio";
+    src: url("../../tipografia/ITCAvantGardeStd-BoldCnObl.otf");
+    font-style: normal;
+    font-weight: 100;
+}
+
+.detalle-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .imagen-detalle {
+        width: 66%;
+        div {
+            display: flex;
+            position: absolute;
+            margin-left: 10px;
+            .categoria {
+                text-decoration: none;
+                color: black;
+                margin-left: 5px;
+                font-size: 15px;
+                font-family: "Avant Garde 2";
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .producto-detail {
+        width: 33%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 15px;
+        .categorizacion {
+            display: flex;
+            p {
+                margin-left: 10px;
+            }
+        }
+        .producto__nombre {
+            font-family: "Avant Garde producto";
+            font-size: 45px;
+            margin: 0 10px;
+        }
+        .producto__precio {
+            font-family: "Avant Garde precio";
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .colores {
+            font-family: "Avant Garde 2";
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin-left: 10px;
+        }
+        .descuento {
+            font-family: "Avant Garde 2";
+            font-size: 17px;
+            letter-spacing: 1px;
+            margin-left: 10px;
+        }
+        .contador {
+            width: 100%;
+        }
+    }
+}

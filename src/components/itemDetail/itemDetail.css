@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "Avant Garde 2";
+  src: url("../../tipografia/ITCAvantGardeStd-BkCnObl.otf");
+  font-style: italic;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Avant Garde producto";
+  src: url("../../tipografia/ITCAvantGardeStd-DemiCnObl.otf");
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Avant Garde precio";
+  src: url("../../tipografia/ITCAvantGardeStd-BoldCnObl.otf");
+  font-style: normal;
+  font-weight: 100;
+}
+.detalle-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.detalle-container .imagen-detalle {
+  width: 66%;
+}
+.detalle-container .imagen-detalle div {
+  display: flex;
+  position: absolute;
+  margin-left: 10px;
+}
+.detalle-container .imagen-detalle div .categoria {
+  text-decoration: none;
+  color: black;
+  margin-left: 5px;
+  font-size: 15px;
+  font-family: "Avant Garde 2";
+}
+.detalle-container .imagen-detalle img {
+  width: 100%;
+}
+.detalle-container .producto-detail {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 15px;
+}
+.detalle-container .producto-detail .categorizacion {
+  display: flex;
+}
+.detalle-container .producto-detail .categorizacion p {
+  margin-left: 10px;
+}
+.detalle-container .producto-detail .producto__nombre {
+  font-family: "Avant Garde producto";
+  font-size: 45px;
+  margin: 0 10px;
+}
+.detalle-container .producto-detail .producto__precio {
+  font-family: "Avant Garde precio";
+  font-size: 20px;
+  margin-left: 10px;
+}
+.detalle-container .producto-detail .colores {
+  font-family: "Avant Garde 2";
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-left: 10px;
+}
+.detalle-container .producto-detail .descuento {
+  font-family: "Avant Garde 2";
+  font-size: 17px;
+  letter-spacing: 1px;
+  margin-left: 10px;
+}
+.detalle-container .producto-detail .contador {
+  width: 100%;
+}/*# sourceMappingURL=itemDetail.css.map */

@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
                 id:response.id
             }
             setProducto(newDoc);
-        }).catch(error=>console.log(error));
+        });
     },[id])
         return (
                 <div className='card-detail'>

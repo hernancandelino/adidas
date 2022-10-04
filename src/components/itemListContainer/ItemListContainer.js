@@ -29,11 +29,6 @@ const ItemListContainer = () => {
             }},[categoria])
     return (
         <>
-            <div>        
-                <h1>
-                    Adidas
-                </h1>
-            </div>
             <div className='contenedor-cards'>
                 <ItemList producto={productos}/>
             </div>

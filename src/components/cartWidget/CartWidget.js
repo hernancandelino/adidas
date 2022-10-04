@@ -6,22 +6,13 @@ import './cartWidget.css';
 
 const CartWidget = () => {
     const {cantidadCarrito} = useContext(CartContext);
-
-    const CantidadCarrito = () => {
-        return (
-            <>
-                <p>{cantidadCarrito}</p>
-            </>
-        )
-    }
-
     return (
-    <div>
+    <>
         <Link className={`${cantidadCarrito > 0 ? `carrito-activo` : `carrito-inactivo`}`} to="/cart">
             <img src={carrito} alt="carrito"></img>
-            <CantidadCarrito/>
+            <p>{cantidadCarrito}</p>
         </Link>
-    </div>
+    </>
     );
 }
 
