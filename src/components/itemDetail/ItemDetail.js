@@ -3,7 +3,6 @@ import './itemDetail.css'
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({producto}) => {
-
     return (
         <div className="detalle-container">
             <div className="imagen-detalle">
